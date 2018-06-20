@@ -1,0 +1,59 @@
+.playerimg{
+margin-left:45%;
+width:135;
+height:160;
+}
+.scorecard{
+	width:800;
+	height:300;
+	margin-left:5%;
+}
+.scorecard1{
+	margin-top:1%;
+	margin-left:5%;
+	width:180;
+}
+.btn{
+	margin-left:50%;
+	background-color: #3E3B3B;
+	border-radius: 10px;
+	color: white;
+	display: inline-block;
+	cursor: pointer;
+	padding:8px;
+	text-align:center;
+}
+.logincolor{
+	background-color:#DBD5D5;
+	margin-left:38%;
+	margin-top:5%;
+}
+.butn{
+	margin-left:9%;
+	margin-top:10px;
+	background-color: #3E3B3B;
+	border-radius: 10px;
+	color: white;
+	display: inline-block;
+	cursor: pointer;
+	padding:8px;
+	text-align:center;
+}
+.bgcolor{
+	background-color:#DBD5D5;
+}
+#name{
+	margin-left:35px;
+	margin-bottom:10px;
+	padding:2px;
+}
+#pwd{
+	padding:2px;
+	margin-left:12px;
+}
+#user{
+	color:red;
+}
+#pswrd{
+	color:red;
+}
