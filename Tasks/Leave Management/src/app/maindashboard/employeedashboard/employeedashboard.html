@@ -1,0 +1,177 @@
+
+<div><button class="btn_logout" (click)="logoutUser($event)">Logout</button></div>
+<div>
+     <button class="btn_addLeave" (click)="leave($event)">Add Leave</button>
+     </div>
+<div class="searchbar">
+        <input type="text" class="search" [(ngModel)]="searchText" placeholder="Search here...">    
+</div>
+<div>
+<table class="mytable">
+        <tr>
+            <th>S.NO</th>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Comments</th>
+        </tr>
+        <tr *ngFor="let store of userdata | filter : searchText | paginate: { itemsPerPage: 2, currentPage: p } ; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{store.LeaveType}}</td>
+            <td>{{store.StartDate}}</td>
+            <td>{{store.EndDate}}</td>
+            <td>{{store.Status}}</td>
+            <td>{{store.Comments}}</td>
+            <!-- <td> <img src = "assets\images\editIcon.png" > 
+                <img src = "assets\images\deleteIcon.png" > </td> -->
+        </tr>
+    </table>
+</div>
+   <div class = "page" > <pagination-controls  (pageChange)="p = $event"></pagination-controls></div>  
+   
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+}
+.btn_addLeave
+{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background:#5DADE2;
+  width: 8%;
+  float:left;
+  border: 0;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-top:10%;
+  margin-left: 8%;
+
+}
+.btn_addLeave:hover
+{
+     background: darkslateblue;
+}
+
+.btn_logout
+{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background:#5DADE2;
+  width: 7%;
+  float:right;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-bottom:2%;
+  margin-right: 3%;
+}
+.btn_logout:hover
+{
+     background: darkslateblue;
+}
+.page
+{
+    margin-left: 70%;
+}
+table.mytable {
+    text-align: center;
+    width: 100%;
+    padding: 10px 8%;
+}
+
+table td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+table th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #F44336;
+    color: white;
+    padding: 7px;
+}
+
+.searchbar{
+    float: right;
+    width: 17%;
+    margin-top:10%; 
+}
+
+input.search {
+    padding: 5px;
+    
+}
+
+.emptable {
+    float: left;
+    width: 90%;
+    padding: 5%5%;
+}
+
+.paginations {
+    float: right;
+}
+.pagination a.active {
+    background-color: #e91e63;
+    color: white;
+    padding: 5px;
+}
+.pagination {
+    width: 17%;
+    float: right;
+    padding: 10px 0px;
+}
+.pagination a:hover:not(.active) 
+{
+background-color: #ddd;
+
+}
+
+button.button {
+     font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background:#5DADE2;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-bottom:2%
+}
+.image {
+    width: 35px;
+    height: auto;
+}
+li
+{
+    display: inline-block;
+}
+ul {
+    margin-right: 130px;
+}
+
+
+
+
+</style>
+
+

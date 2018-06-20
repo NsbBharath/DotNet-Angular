@@ -1,0 +1,137 @@
+<div><button class="btn_logout" (click)="logoutUser($event)">Logout</button></div>
+<div class="searchbar">
+            <input type="text" class="search" [(ngModel)]="searchText" placeholder="Search here...">
+        </div>
+
+<table class="mytable">
+        <tr>
+             <th>S.NO</th> 
+            <th>EmployeeName</th>
+            <th>Leave_Type </th>
+            <th>NumberofDays</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let store of userdata | filter : searchText | paginate: { itemsPerPage: 2, currentPage: p }     ; let i=index">
+             <td>{{i+1}}</td> 
+            <td>{{store.EmployeeName}}</td>
+            <td>{{store.Leave_Type}}</td>
+            <td>{{store.NumberofDays}}</td>
+            <td>{{store.Status}}</td> 
+            <td><input type="image" value="view" class="image" src="assets\images\editIcon.png" (click)="view(store.LeaveManagement_ID)" ></td>
+        </tr>
+    </table>
+    <div class = "page" > <pagination-controls  (pageChange)="p = $event"></pagination-controls></div>
+
+
+
+ <style>
+         
+*{
+margin:0;
+padding:0;
+}
+.btn_logout
+{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background:#5DADE2;
+  width: 7%;
+  float:right;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-bottom:2%;
+  margin-right: 3%;
+}
+.btn_logout:hover
+{
+     background: darkslateblue;
+}
+
+.page
+{
+    margin-left: 70%;
+}
+table.mytable {
+    text-align: center;
+    width: 100%;
+    padding: 10px 8%;
+}
+
+table td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+table th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #F44336;
+    color: white;
+    padding: 7px;
+}
+
+.searchbar{
+    float: right;
+    width: 17%;
+    margin-top:10%; 
+}
+
+.searchs{
+    float: right;
+    width: 140%;
+    padding: 10px 0px;
+
+}
+
+input.search {
+    padding: 5px;
+}
+
+.emptable {
+    float: left;
+    width: 90%;
+    padding: 5%5%;
+}
+
+.paginations {
+    float: right;
+}
+.pagination a.active {
+    background-color: #e91e63;
+    color: white;
+    padding: 5px;
+}
+.pagination {
+    width: 17%;
+    float: right;
+    padding: 10px 0px;
+}
+.pagination a:hover:not(.active) 
+{
+background-color: #ddd;
+
+}
+
+button.button {
+    padding: 2%;
+    background: darkgrey;
+}
+.image {
+    width: 20px;
+    height: 20px;
+}
+li
+{
+    display: inline-block;
+}
+ul {
+    margin-right: 130px;
+}
+</style>
